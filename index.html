@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>照片墙</title>
+    <link rel="stylesheet/less" href="./css/waterFall.less">
+    <script src="./js/less-2.5.3.min.js"></script>
+    <!-- <script>
+        ~function () {
+            let computedSize = function () {
+                let winSize = document.documentElement.clientWidth,
+                    designSize = 640;                    
+                if (winSize > 640) {
+                    document.documentElement.style.fontSize = 100 + 'px';
+                    return;
+                }
+                document.documentElement.style.fontSize =  (winSize/designSize) * 100 + 'px';
+            }
+            computedSize();
+            window.addEventListener('resize', computedSize);
+        }();
+    </script> -->
+</head>
+
+<body>
+    <!-- 
+        分成几列，由屏幕大小决定： 手机上一列，电脑上三列 最小250
+     -->
+    <section class="waterFall clearfix" id="waterFall">
+            <div class="grid-item" id="cc"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <!-- <div class="grid-item"></div> -->
+    </section>
+
+
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
