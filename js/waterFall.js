@@ -52,7 +52,6 @@ class WaterFall {
         });
     }
     init(images, wrapper, imagesHeightAry, baseAry, container) {
-        this.setAryDefaultValue(baseAry, container);
         this.placeAllImages(images, imagesHeightAry, baseAry, container);
         window.onscroll = () => {
             let _wh = wrapper.offsetHeight,
