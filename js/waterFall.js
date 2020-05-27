@@ -22,15 +22,9 @@ class WaterFall {
         container[_minIndex].innerHTML += `<img src = ./img/${imgSrc}>`;
         ary[_minIndex] += ary2[index];
     }
-    // 滚动加载
-    scrollLoad() {
-
-    }
-
     // 初始化
     placeAllImages(images, imagesHeightAry, baseAry, container) {
         let _that = this;
-        _that.setAryDefaultValue(baseAry, container.length);
         let count = 0;
         imagesHeightAry = [];
         images.forEach((item, index) => {
@@ -51,17 +45,21 @@ class WaterFall {
             }
         });
     }
+    //滚动加载
+    scrollLoad(images){
+            let _wh = this.wrapper.offsetHeight,
+            _cH = document.documentElement.clientHeight,
+            _scrollH = document.documentElement.scrollTop;
+            if (_scrollH + _cH + 10> _wh && this.flag) {
+                this.flag = false;
+                this.placeAllImages(images, this.imagesHeightAry, this.baseAry, this.container);
+            } 
+    }
     init(images, wrapper, imagesHeightAry, baseAry, container) {
+        this.setAryDefaultValue(baseAry, container.length);
         this.placeAllImages(images, imagesHeightAry, baseAry, container);
         window.onscroll = () => {
-            let _wh = wrapper.offsetHeight,
-                _cH = document.documentElement.clientHeight,
-                _scrollH = document.documentElement.scrollTop;
-            if (_scrollH + _cH + 10 > _wh && this.flag) {
-                this.flag = false;
-                this.placeAllImages(images, imagesHeightAry, baseAry, container);
-            }
+
         }
     }
-
 }
